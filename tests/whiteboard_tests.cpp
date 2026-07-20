@@ -1389,7 +1389,7 @@ void test_overview_geometry() {
         CHECK(rejected);
     }
     Board dormant;
-    dormant.edges.push_back(Edge{});
+    dormant.edges.emplace_back(std::in_place);
     dormant.edges[0]->points = {{-500, -500}, {500, 500}};
     CHECK(!board_overview_bounds(dormant, CardSpatial{}, bounds));
 }

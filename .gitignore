@@ -1,0 +1,50 @@
+# Build trees and generated build files
+/build*/
+/cmake-build-*/
+/vcpkg_installed/
+CMakeUserPresets.json
+CMakeCache.txt
+CMakeFiles/
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+DartConfiguration.tcl
+Testing/
+cmake_install.cmake
+compile_commands.json
+install_manifest.txt
+
+# Personal and local agent state
+/mynote/
+/.agent/
+/.codex/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+
+# Coverage and profiling output
+*.gcda
+*.gcno
+*.profraw
+*.profdata
+
+# Atomic file output temporaries
+.*.tmp.*
+
+# Local benchmark output
+/benchmark.csv
+
+# Editor and operating-system files
+.DS_Store
+*.swp
+*~
+
+# Browser dependencies, bundles and test output
+/web/node_modules/
+/web/dist/
+/web/test-results/
+/web/playwright-report/
+/web/*.tgz

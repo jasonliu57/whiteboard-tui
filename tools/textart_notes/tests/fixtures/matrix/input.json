@@ -1,0 +1,26 @@
+{
+  "mode": "grid",
+  "title": "風險矩陣 / Risk Matrix",
+  "row_axis": {"id": "impact", "label": "影響 Impact"},
+  "column_axis": {"id": "probability", "label": "機率 Probability"},
+  "rows": [
+    {"id": "high-impact", "label": "高 High"},
+    {"id": "low-impact", "label": "低 Low"}
+  ],
+  "columns": [
+    {"id": "likely", "label": "常見 Likely"},
+    {"id": "rare", "label": "罕見 Rare"}
+  ],
+  "cells": [
+    {"row_id": "high-impact", "column_id": "likely", "state_id": "risk", "label": "立即處理"},
+    {"row_id": "high-impact", "column_id": "rare", "state_id": "watch", "label": "監控"},
+    {"row_id": "low-impact", "column_id": "likely", "state_id": "watch", "label": "排程"},
+    {"row_id": "low-impact", "column_id": "rare", "state_id": "ok", "label": "接受"}
+  ],
+  "legend": [
+    {"id": "risk", "label": "High risk 高風險", "marker": "alert"},
+    {"id": "watch", "label": "Watch 觀察", "marker": "dot"},
+    {"id": "ok", "label": "Accept 可接受", "marker": "circle"}
+  ],
+  "layout": {"row_label_width": 10, "min_cell_width": 9}
+}

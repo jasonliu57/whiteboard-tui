@@ -1,0 +1,27 @@
+{
+  "title": "Sprint 研究會議",
+  "columns": [
+    {"key": "fact", "label": "事實 Fact"},
+    {"key": "explanation", "label": "解釋 Why"},
+    {"key": "action", "label": "行動 Action"}
+  ],
+  "rows": [
+    {
+      "fact": "API 延遲 240 ms",
+      "explanation": "尖峰 traffic 使 cache miss 增加",
+      "action": "Mina：Friday 前調整 TTL"
+    },
+    {
+      "fact": "3/5 使用者找不到匯出",
+      "explanation": "Export button 只在 desktop 顯示",
+      "action": "補 mobile menu 並安排 A/B test"
+    },
+    {
+      "fact": "錯誤率降到 0.8%",
+      "explanation": "retry policy 已上線，效果待確認",
+      "action": "追蹤 7 days；owner: Lin"
+    }
+  ],
+  "widths": {"mode": "ratio", "ratios": [3, 4, 3]},
+  "footer": "來源 Source: 2026-08-01 研究同步會"
+}

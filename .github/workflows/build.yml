@@ -1,0 +1,135 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CMAKE_VERSION: 4.3.4
+  VCPKG_COMMIT: 7ebe9ffa933558af0c2fec88a1cdd5972fdcb51c
+  VCPKG_ROOT: ${{ github.workspace }}/.vcpkg
+
+jobs:
+  build:
+    name: ${{ matrix.label }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            label: linux-x86_64-gcc
+            cc: gcc
+            cxx: g++
+          - runner: ubuntu-24.04
+            label: linux-x86_64-clang
+            cc: clang
+            cxx: clang++
+          - runner: ubuntu-24.04-arm
+            label: linux-arm64-gcc
+            cc: gcc
+            cxx: g++
+          - runner: macos-15
+            label: macos-arm64-clang
+            cc: clang
+            cxx: clang++
+          - runner: macos-15-intel
+            label: macos-x86_64-clang
+            cc: clang
+            cxx: clang++
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Checkout vcpkg baseline
+        uses: actions/checkout@v7
+        with:
+          repository: microsoft/vcpkg
+          ref: ${{ env.VCPKG_COMMIT }}
+          path: .vcpkg
+          persist-credentials: false
+
+      - name: Install CMake
+        shell: bash
+        run: |
+          cmake_venv="$RUNNER_TEMP/whiteboard-cmake-$CMAKE_VERSION"
+          python3 -m venv "$cmake_venv"
+          "$cmake_venv/bin/python" -m pip install \
+            --disable-pip-version-check \
+            --only-binary=:all: \
+            "cmake==$CMAKE_VERSION"
+          echo "$cmake_venv/bin" >> "$GITHUB_PATH"
+
+      - name: Verify build tools
+        shell: bash
+        run: |
+          test "$(cmake --version | head -n 1)" = "cmake version $CMAKE_VERSION"
+          cmake --version
+          ninja --version
+
+      - name: Bootstrap vcpkg
+        shell: bash
+        run: ./.vcpkg/bootstrap-vcpkg.sh -disableMetrics
+
+      - name: Configure
+        shell: bash
+        env:
+          CC: ${{ matrix.cc }}
+          CXX: ${{ matrix.cxx }}
+        run: >-
+          cmake --preset vcpkg-release
+          -DWHITEBOARD_WARNINGS_AS_ERRORS=ON
+          -DWHITEBOARD_PACKAGE_PLATFORM=${{ matrix.label }}
+
+      - name: Build
+        run: cmake --build --preset vcpkg-release
+
+      - name: Test
+        run: ctest --preset vcpkg-release
+
+      - name: Package
+        run: cmake --build --preset vcpkg-release --target package
+
+      - name: Upload package
+        uses: actions/upload-artifact@v7
+        with:
+          name: package-${{ matrix.label }}
+          path: build/vcpkg-release/whiteboard-tui-*.tar.gz
+          if-no-files-found: error
+
+  publish:
+    name: Publish release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v8
+        with:
+          pattern: package-*
+          path: packages
+          merge-multiple: true
+
+      - name: Publish tag
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh release create "$GITHUB_REF_NAME" packages/*.tar.gz --generate-notes --verify-tag

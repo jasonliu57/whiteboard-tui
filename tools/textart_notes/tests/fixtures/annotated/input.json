@@ -1,0 +1,21 @@
+{
+  "title": "Raft 論文閱讀批註 / Reading notes",
+  "source": {
+    "id": "raft-sec5",
+    "label": "raft-paper.md §5",
+    "first_line": 137,
+    "lines": [
+      "Leader sends AppendEntries\tto followers.",
+      "提交條件 depends on a majority acknowledgement.",
+      "Safety requires the entry to be from the current term.",
+      "Clients may retry after a timeout.",
+      "同一 command 必須去重，避免重複套用。",
+      "The response includes the committed index."
+    ]
+  },
+  "annotations": [
+    {"id": "a-majority", "start_line": 137, "end_line": 139, "kind": "important", "body": "多數派確認不是唯一條件；current term 仍是 safety 關鍵。"},
+    {"id": "a-retry", "start_line": 140, "end_line": 141, "kind": "question", "body": "Retry 與 command ID 如何共同保證 exactly-once effect？"},
+    {"id": "a-term", "start_line": 139, "end_line": 139, "kind": "comment", "body": "此單行範圍嵌套在 a-majority；輸出仍保留輸入順序。"}
+  ]
+}

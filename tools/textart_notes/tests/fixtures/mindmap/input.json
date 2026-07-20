@@ -1,0 +1,15 @@
+{
+  "root_id": "mindmap",
+  "nodes": [
+    {"id": "mindmap", "label": "心智圖 Mind Map", "detail": "中央主題", "children": ["explore", "learn", "share", "review"]},
+    {"id": "explore", "label": "探索 Explore", "children": ["questions", "sources"]},
+    {"id": "learn", "label": "學習 Learn", "detail": "閱讀\t練習", "children": ["notes", "practice"]},
+    {"id": "share", "label": "分享 Share", "children": ["talk"]},
+    {"id": "review", "label": "回顧 Review", "children": []},
+    {"id": "questions", "label": "提問 Questions", "children": []},
+    {"id": "sources", "label": "資料 Sources", "children": []},
+    {"id": "notes", "label": "筆記 Notes", "children": []},
+    {"id": "practice", "label": "實作 Practice", "children": []},
+    {"id": "talk", "label": "說明 Explain", "detail": "Amélie 示例", "children": []}
+  ]
+}

@@ -1,0 +1,15 @@
++----------------------------------------------+
+| Study Log / 學習紀錄                         |
+| Template: study-log                          |
+| Legend: * required; - optional; ! missing;   |
+|         [x]/[ ] checkbox                     |
+| Part: 1/1                                    |
++----------------------------------------------+
+| * Topic / 主題                               |
+|   Terminal cells 中文                        |
+| - [x] Reviewed / 已複習                      |
+| # Next actions / 下一步                      |
+|   Record 1                                   |
+|   * Next / 後續                              |
+|     Add shared core / 共用核心               |
++----------------------------------------------+

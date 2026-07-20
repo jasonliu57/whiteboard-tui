@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "browser": "153.0.8010.12",
+  "cpu_throttle": 4,
+  "samples": 20,
+  "menu": {
+    "desktop": {
+      "click_handler": {
+        "median_ms": 1.2999999821186066,
+        "p95_ms": 2.7000000178813934
+      },
+      "click_to_paint_opportunity": {
+        "median_ms": 33.29999998211861,
+        "p95_ms": 33.599999994039536
+      }
+    },
+    "mobile": {
+      "click_handler": {
+        "median_ms": 2.0999999940395355,
+        "p95_ms": 3.2000000178813934
+      },
+      "click_to_paint_opportunity": {
+        "median_ms": 33.20000001788139,
+        "p95_ms": 33.599999994039536
+      },
+      "touch_release_to_click": {
+        "median_ms": 2.199999988079071,
+        "p95_ms": 2.600000023841858
+      }
+    }
+  },
+  "worker": {
+    "input_frame_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "export_frame_counts": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "escape_first_changed_frame": {
+      "median_ms": 0.7000000178813934,
+      "p95_ms": 1
+    }
+  },
+  "wasm_sha256": "352ea2042843cc03d33433b4f38acc0c01e459056dc9e8eacee07e91c3158547"
+}

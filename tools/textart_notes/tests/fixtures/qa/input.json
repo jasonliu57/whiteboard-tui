@@ -1,0 +1,21 @@
+{
+  "title": "資料結構複習 / Data Structures Review",
+  "mode": "expanded",
+  "items": [
+    {
+      "pair_id": "queue-fifo",
+      "question": "Queue 的核心順序是什麼？ / What order does a queue use?",
+      "answer": "先進先出（FIFO）；最早加入的元素最先離開。",
+      "hint": "想像排隊買票 / Think of a ticket line.",
+      "tags": ["資料結構", "interview"],
+      "difficulty": "easy"
+    },
+    {
+      "pair_id": "tree-height",
+      "question": "若 root 到 leaf 有 3 條 edge，height 是多少？",
+      "answer": "以 edge 數定義時 height = 3；definition must be explicit.",
+      "tags": ["tree", "定義"],
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "input-check",
+  "title": "輸入驗證 Input validation",
+  "nodes": [
+    {"id": "start", "kind": "start", "label": "開始 Start", "details": []},
+    {"id": "read", "kind": "process", "label": "讀取 Input", "details": ["欄位\tUTF-8"]},
+    {"id": "valid", "kind": "decision", "label": "資料 valid?", "details": ["Café 與中文"]},
+    {"id": "repair", "kind": "process", "label": "修正 Error", "details": []},
+    {"id": "run", "kind": "process", "label": "執行 Run", "details": []},
+    {"id": "write", "kind": "process", "label": "寫入結果", "details": []},
+    {"id": "end", "kind": "end", "label": "完成 Done", "details": []}
+  ],
+  "edges": [
+    {"id": "e-start-read", "from": "start", "to": "read", "source_port": "south", "target_port": "north", "label": null},
+    {"id": "e-read-valid", "from": "read", "to": "valid", "source_port": "south", "target_port": "north", "label": null},
+    {"id": "e-invalid", "from": "valid", "to": "repair", "source_port": "west", "target_port": "north", "label": "否 No"},
+    {"id": "e-valid", "from": "valid", "to": "run", "source_port": "east", "target_port": "north", "label": "是 Yes"},
+    {"id": "e-repair-write", "from": "repair", "to": "write", "source_port": "south", "target_port": "north-west", "label": null},
+    {"id": "e-run-write", "from": "run", "to": "write", "source_port": "south", "target_port": "north-east", "label": null},
+    {"id": "e-write-end", "from": "write", "to": "end", "source_port": "south", "target_port": "north", "label": null}
+  ]
+}

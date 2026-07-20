@@ -1,0 +1,18 @@
+┌──────────────────────────────────────────────────────┐
+│ COLLECTION: 資料結構永久筆記 / Data Structures       │
+│ ID: queue-fifo                                       │
+├──────────────────────────────────────────────────────┤
+│ TITLE: 佇列遵循 FIFO / Queue ordering                │
+├──────────────────────────────────────────────────────┤
+│ BODY                                                 │
+│ 先進先出（FIFO）讓最早加入的元素先離開。             │
+│ Enqueue 在尾端，dequeue 從前端。                     │
+│ Tab 範例: O(1)，accent: café。                       │
+├──────────────────────────────────────────────────────┤
+│ TAGS: 資料結構, queue                                │
+│ REF: [I:ok] amortized-analysis - 攤銷分析            │
+│ REF: [I:?] missing-ring-buffer - 待補環形緩衝區      │
+│ REF: [E] clrs-4e - CLRS                              │
+│ SOURCE: source-clrs | Cormen et al., Introduction to │
+│         Algorithms @ §10.1                           │
+└──────────────────────────────────────────────────────┘

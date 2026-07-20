@@ -1,0 +1,35 @@
+{
+  "id": "learning-loop",
+  "title": "學習\tLearning Loop",
+  "concepts": [
+    {
+      "id": "observe",
+      "label": "觀察\tData",
+      "detail": "蒐集 Café signals 與量測"
+    },
+    {
+      "id": "model",
+      "label": "心智 Model",
+      "detail": "का context keeps marks clustered"
+    },
+    {
+      "id": "action",
+      "label": "行動 Action",
+      "detail": "Run tests 並採取行動"
+    },
+    {
+      "id": "feedback",
+      "label": "回饋 Feedback",
+      "detail": "更新\tassumptions"
+    }
+  ],
+  "edges": [
+    {"id": "e-evidence", "from": "observe", "to": "model", "relation": "形成\tinforms"},
+    {"id": "e-guides", "from": "model", "to": "action", "relation": "引導 guides"},
+    {"id": "e-yields", "from": "action", "to": "feedback", "relation": "產生 yields"},
+    {"id": "e-revises", "from": "feedback", "to": "model", "relation": "修正 revises"},
+    {"id": "e-closes", "from": "feedback", "to": "observe", "relation": "閉合 closes"},
+    {"id": "e-supports", "from": "observe", "to": "action", "relation": "支持 supports"},
+    {"id": "e-reflects", "from": "model", "to": "model", "relation": "自我檢查 reflects"}
+  ]
+}

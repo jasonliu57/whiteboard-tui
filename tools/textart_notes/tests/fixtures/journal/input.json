@@ -1,0 +1,22 @@
+{
+  "journal_title": "工程日誌 / Engineering Journal",
+  "timezone": "+08:00",
+  "view": "daily",
+  "entries": [
+    {
+      "date": "2026-08-01",
+      "id": "sprint-20260801",
+      "events": [
+        {"id": "standup", "text": "同步 API 契約 / sync renderer contract"},
+        {"id": "cell-audit", "text": "檢查欄位\t對齊 and café combining mark"}
+      ],
+      "reflection": "中文每字兩格；English stays narrow.",
+      "next_steps": [{"id": "golden", "text": "補齊 mixed-language golden test"}],
+      "mood": "專注 / focused",
+      "metrics": [
+        {"label": "測試 / tests", "value": 12, "unit": "cases"},
+        {"label": "coverage", "value": "91%"}
+      ]
+    }
+  ]
+}

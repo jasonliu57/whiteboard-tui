@@ -1,0 +1,37 @@
+{
+  "board_id": "release-board",
+  "title": "版本發布 Release",
+  "lanes": [
+    {
+      "id": "todo",
+      "name": "待處理 TODO",
+      "wip_limit": 3,
+      "items": [
+        {
+          "id": "task-001",
+          "title": "整理 API\t文件",
+          "assignee": "怡君 Amy",
+          "priority": "high",
+          "tags": ["docs", "v2"]
+        },
+        {"id": "task-002", "title": "Review café examples", "priority": "medium"}
+      ]
+    },
+    {
+      "id": "doing",
+      "name": "進行中 DOING",
+      "wip_limit": 1,
+      "items": [
+        {"id": "task-003", "title": "修正 terminal cell 寬度", "assignee": "Bo"},
+        {"id": "task-004", "title": "補齊 golden tests", "tags": ["test"]}
+      ]
+    },
+    {
+      "id": "done",
+      "name": "已完成 DONE",
+      "items": [
+        {"id": "task-005", "title": "凍結 renderer API v1", "assignee": "team", "priority": "high", "tags": ["contract"]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(absl @WHITEBOARD_ABSL_VERSION@ EXACT CONFIG)
+find_dependency(Freetype)
+find_dependency(PNG)
+
+include("${CMAKE_CURRENT_LIST_DIR}/whiteboard-tui-targets.cmake")

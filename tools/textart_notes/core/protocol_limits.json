@@ -1,0 +1,18 @@
+{
+  "default_agent_board_png_side": 1600,
+  "default_agent_png_pixels": 24,
+  "default_agent_timeout_milliseconds": 5000,
+  "manifest_version": 2,
+  "max_agent_board_png_side": 2048,
+  "max_agent_header_bytes": 1024,
+  "max_agent_png_pixels": 64,
+  "max_agent_query_results": 256,
+  "max_agent_request_bytes": 262144,
+  "max_agent_response_bytes": 1048576,
+  "max_manifest_bytes": 8388608,
+  "max_manifest_cards": 4096,
+  "max_renderer_input_bytes": 8388608,
+  "max_total_payload_bytes": 16777216,
+  "min_agent_board_png_side": 256,
+  "min_agent_png_pixels": 8
+}

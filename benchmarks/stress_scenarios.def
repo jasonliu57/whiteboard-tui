@@ -1,0 +1,8 @@
+WHITEBOARD_STRESS_SCENARIO("board", run_stress_benchmark)
+WHITEBOARD_STRESS_SCENARIO("registry-create", run_registry_create_benchmark)
+WHITEBOARD_STRESS_SCENARIO("create-cards", run_create_cards_benchmark)
+WHITEBOARD_STRESS_SCENARIO("native-dense", run_native_dense_benchmark)
+WHITEBOARD_STRESS_SCENARIO("native-payload", run_native_payload_benchmark)
+WHITEBOARD_STRESS_SCENARIO("native-glyphs", run_native_glyph_benchmark)
+WHITEBOARD_STRESS_SCENARIO("native-tombstones", run_native_tombstone_benchmark)
+WHITEBOARD_STRESS_SCENARIO("native-repeatability", run_native_repeatability_benchmark)

@@ -1,0 +1,31 @@
+{
+  "id": "roadmap-2026",
+  "title": "研究 Roadmap / 路線圖",
+  "groups": [
+    {
+      "id": "discover",
+      "heading": "探索 Discover",
+      "topics": [
+        {
+          "id": "signals",
+          "heading": "訊號 Signals",
+          "body": ["訪談 users\t整理 themes", "e\u0301vidence + 數據"],
+          "emphasis": "strong"
+        },
+        {
+          "id": "questions",
+          "heading": "Questions 問題",
+          "body": ["What changed?", "影響是什麼？"]
+        }
+      ]
+    },
+    {
+      "id": "decide",
+      "heading": "決策 Decide",
+      "topics": [
+        {"id": "tradeoffs", "heading": "取捨 Trade-offs", "body": ["成本 / quality / 時間"]},
+        {"id": "next-step", "heading": "下一步 Next step", "body": ["Run experiment 01", "週五 review"], "emphasis": "strong"}
+      ]
+    }
+  ]
+}

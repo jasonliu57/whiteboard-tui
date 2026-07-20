@@ -1,0 +1,89 @@
+{
+  "$id": "https://whiteboard-tui.invalid/schema/textart-manifest-v2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cards": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "format": {
+            "const": "text-art"
+          },
+          "height": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "id": {
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "payload": {
+            "pattern": "^generations/[0-9a-f]{64}/payloads/[a-z0-9]+(?:-[a-z0-9]+)*\\.txt$",
+            "type": "string"
+          },
+          "width": {
+            "maximum": 160,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "x": {
+            "maximum": 9223372036854775807,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "y": {
+            "maximum": 9223372036854775807,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "format",
+          "payload",
+          "width",
+          "height",
+          "x",
+          "y",
+          "metadata"
+        ],
+        "type": "object"
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "type": "array"
+    },
+    "generation": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest_version": {
+      "const": 2
+    },
+    "renderer": {
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "type": "string"
+    },
+    "theme": {
+      "enum": [
+        "ascii",
+        "unicode-light",
+        "unicode-rich"
+      ]
+    }
+  },
+  "required": [
+    "manifest_version",
+    "generation",
+    "renderer",
+    "theme",
+    "cards"
+  ],
+  "title": "whiteboardTUI text-art generation manifest",
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+┌────────────────────────────────────────────────────────────────────────────┐
+│Raft 論文閱讀批註 / Reading notes                                           │
+│Source: raft-paper.md §5 [raft-sec5] | original lines 137-142               │
+├───────────────────────────────────────┼───┼────────────────────────────────┤
+│SOURCE                                 │   │ANNOTATION                      │
+├───────────────────────────────────────┼───┼────────────────────────────────┤
+│137 Leader sends AppendEntries to      │└─!│[a-majority] IMPORTANT L137-L139│
+│    followers.                         │ │ │多數派確認不是唯一條件；current │
+│138 提交條件 depends on a majority     │ │ │term 仍是 safety 關鍵。         │
+│    acknowledgement.                   │ │ │                                │
+│139 Safety requires the entry to be    │ │ │                                │
+│    from the current term.             │ │ │                                │
+├───────────────────────────────────────┼───┼────────────────────────────────┤
+│140 Clients may retry after a timeout. │└─?│[a-retry] QUESTION L140-L141    │
+│141 同一 command                       │ │ │Retry 與 command ID             │
+│    必須去重，避免重複套用。           │ │ │如何共同保證 exactly-once       │
+│                                       │ │ │effect？                        │
+├───────────────────────────────────────┼───┼────────────────────────────────┤
+│139 Safety requires the entry to be    │└─>│[a-term] COMMENT L139           │
+│    from the current term.             │ │ │此單行範圍嵌套在                │
+│                                       │ │ │a-majority；輸出仍保留輸入順序。│
+└───────────────────────────────────────┴───┴────────────────────────────────┘

@@ -1,0 +1,71 @@
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 100 800; font-display: swap; src: url('./fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 100 800; font-display: swap; src: url('./fonts/jetbrains-mono-box-wght-normal.woff2') format('woff2'); unicode-range: U+2500-259F; }
+.tiwb-app {
+  --font-family: 'JetBrains Mono', 'Noto Sans Mono CJK TC', monospace;
+  --font-size: 14px; --line-height: 1.4; --tiwb-focus: var(--foreground0);
+  position: relative; isolation: isolate; container-type: inline-size; display: flex; flex-direction: column;
+  width: 100%; height: 100%; min-width: 0; min-height: 0; overflow: hidden;
+  color: var(--foreground0); background: var(--background0); color-scheme: light;
+  font: var(--font-size)/var(--line-height) var(--font-family); text-align: left;
+  word-break: normal; overflow-wrap: normal; box-sizing: border-box;
+}
+.tiwb-app[data-appearance='light'] { --red: #9f1239; --green: #166534; --yellow: #854d0e; --blue: #1d4ed8; --mauve: #7e22ce; --teal: #0f766e; }
+.tiwb-app[data-appearance='dark'] { color-scheme: dark; --tiwb-focus: var(--lavender); }
+.tiwb-app:fullscreen { width: 100%; height: 100%; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+.tiwb-app *, .tiwb-app *::before, .tiwb-app *::after { box-sizing: border-box; }
+.tiwb-app [hidden] { display: none !important; }
+.tiwb-toolbar { display: flex; align-items: center; flex: 0 0 48px; gap: .5ch; min-width: 0; padding: 0 .5ch; border-bottom: 1px solid var(--background1); }
+.tiwb-app .tiwb-desktop { display: inline-flex; align-items: center; flex-shrink: 0; }
+.tiwb-app .tiwb-mobile { display: none; }
+.tiwb-brand { flex: 0 0 auto; font-weight: 700; padding: 0 .5ch; }
+.tiwb-brand span { color: var(--green); }
+.tiwb-app button, .tiwb-back { border-radius: 0; min-width: 44px; min-height: 44px; height: 44px; margin: 0; padding: 0 1ch; cursor: pointer; touch-action: manipulation; color: var(--foreground0); background: transparent; background-image: none; border: 0; font: inherit; text-decoration: none; }
+.tiwb-back { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.tiwb-app button:hover, .tiwb-back:hover { background: var(--background1); }
+.tiwb-app button:active { background: var(--foreground0); color: var(--background0); }
+.tiwb-app button:focus-visible, .tiwb-back:focus-visible { outline: 2px solid var(--tiwb-focus); outline-offset: -3px; }
+.tiwb-app button[aria-pressed='true'] { font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
+.tiwb-app button:disabled { opacity: .5; cursor: default; text-decoration: line-through; }
+.tiwb-document { display: flex; align-items: baseline; gap: 1ch; flex: 1; min-width: 0; white-space: nowrap; }
+.tiwb-name { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.tiwb-save-state { color: var(--foreground1); font-size: 11px; flex-shrink: 0; }
+.tiwb-save-state::before { content: '· '; }
+.tiwb-save-state[data-dirty='true'] { color: var(--yellow); }
+.tiwb-zoom-controls { display: inline-flex; align-items: center; }
+.tiwb-zoom { min-width: 5ch; text-align: center; font-variant-numeric: tabular-nums; }
+.tiwb-viewport { flex: 1; min-height: 0; min-width: 0; position: relative; overflow: hidden; touch-action: none; }
+/* xterm measures repeated glyphs. CJK punctuation must keep the same advance
+   when repeated for measurement and when rendered beside other characters. */
+.tiwb-terminal { position: absolute; inset: 0; text-spacing-trim: space-all; }
+.tiwb-terminal[data-presenting='true'] { opacity: 0; }
+.tiwb-frame-cover { position: absolute; inset: 0; z-index: 1; contain: strict; overflow: hidden; pointer-events: none; text-spacing-trim: space-all; }
+.tiwb-app[data-loading='true'] .tiwb-terminal { visibility: hidden; }
+.tiwb-terminal .xterm { height: 100%; padding: 0; }
+.tiwb-gesture { position: absolute; inset: 0; z-index: 2; cursor: grab; touch-action: none; }
+.tiwb-gesture:active { cursor: grabbing; }
+.tiwb-minimap { position: absolute; z-index: 3; right: 8px; bottom: 48px; max-width: calc(100% - 16px); overflow: auto; }
+.tiwb-minimap > button { background: var(--background0); border: 1px solid var(--foreground2); }
+.tiwb-map-panel { width: 208px; max-width: 100%; padding: 0 8px 4px; background: var(--background0); border: 1px solid var(--foreground2); }
+.tiwb-map-heading { display: flex; align-items: center; justify-content: space-between; font-weight: 700; }
+.tiwb-app .tiwb-map-surface { display: block; position: relative; width: 100%; height: 124px; padding: 0; overflow: hidden; cursor: crosshair; background: var(--background1); }
+.tiwb-map-surface canvas { display: block; width: 100%; height: 100%; pointer-events: none; }
+.tiwb-map-frame { position: absolute; pointer-events: none; border: 2px solid var(--teal); background: color-mix(in srgb, var(--teal) 12%, transparent); }
+.tiwb-map-surface[aria-disabled='true'] { cursor: default; }
+.tiwb-popover { position: absolute; z-index: 5; top: 48px; left: .5ch; width: min(32ch, calc(100% - 1ch)); max-height: calc(100% - 56px); overflow: auto; overscroll-behavior: contain; padding: .5lh 1ch; background: var(--background0); border: 1px solid var(--foreground1); }
+.tiwb-file-menu > button, .tiwb-menu-settings > button { display: flex; width: 100%; justify-content: space-between; text-align: left; }
+.tiwb-panel-caption { display: flex; justify-content: space-between; align-items: center; min-height: 1.5lh; font-weight: 700; border-bottom: 1px solid var(--background1); margin-bottom: .5lh; }
+.tiwb-app kbd { font: inherit; color: var(--foreground1); }
+.tiwb-help { left: auto; right: .5ch; width: min(54ch, calc(100% - 1ch)); }
+.tiwb-help p { margin: 0 0 1lh; line-height: 1.7; }
+.tiwb-help p:last-child { margin-bottom: 0; }
+.tiwb-notice { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.tiwb-notice[data-visible='true'] { z-index: 6; top: 56px; right: 1ch; display: flex; align-items: start; width: min(50ch, calc(100% - 2ch)); height: auto; max-height: calc(100% - 64px); overflow: auto; clip-path: none; white-space: normal; margin: 0; padding: .5lh 1ch; background: var(--background0); border: 1px solid var(--red); color: var(--red); }
+.tiwb-notice:not([data-visible='true']) button { display: none; }
+.tiwb-message { flex: 1; overflow-wrap: anywhere; }
+@container (max-width: 950px) { .tiwb-save-state { display: none; } }
+@container (max-width: 720px) {
+  .tiwb-app .tiwb-desktop { display: none; }
+  .tiwb-app .tiwb-mobile { display: inline-flex; }
+  .tiwb-app .tiwb-menu-settings { display: flex; flex-direction: column; border-top: 1px solid var(--background1); margin-top: .5lh; padding-top: .5lh; }
+  .tiwb-file-menu { left: auto; right: .5ch; }
+}

@@ -1,0 +1,18 @@
++----------------------------------------------------------------------------------+
+|Timeline: 產品 Release 演進                                                       |
+|Mode: ordinal/ordinal | Engine: Lane Timeline                                     |
+|Range: Discover 探索 [discover] -> Ship 上線 [ship]                               |
+|Scale: ordinal; one connector cell per stage boundary                             |
++--------------------------+---------------------------+---------------------------+
+|STAGE                     |Product 產品               |Engineering 工程           |
++--------------------------+---------------------------+---------------------------+
+|o Discover 探索 [discover]|[brief] 定義 Goal          |[spike] API spike          |
+||                         |  訪談 users 並整理核心問題|  驗證 UTF-8    cell width |
+||                         |                           |                           |
+|o Build 實作 [build]      |[acceptance] Acceptance    |[prototype] 完成 Prototype |
+||                         |review                     |  render → validate → test |
+||                         |  確認 é 與中文欄位對齊    |                           |
+||                         |                           |                           |
+|o Ship 上線 [ship]        |                           |[release] Release v1       |
+||                         |                           |  部署並記錄結果           |
++--------------------------+---------------------------+---------------------------+

@@ -1,0 +1,79 @@
+name: Browser
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    runs-on: ubuntu-24.04
+    env:
+      VCPKG_ROOT: ${{ github.workspace }}/.vcpkg
+      WHITEBOARD_INSPECT: ${{ github.workspace }}/build/vcpkg-release/whiteboard-inspect
+      WHITEBOARD_FIXTURE: ${{ github.workspace }}/build/vcpkg-release/whiteboard_web_fixture
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: microsoft/vcpkg
+          ref: 7ebe9ffa933558af0c2fec88a1cdd5972fdcb51c
+          path: .vcpkg
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: emscripten-core/emsdk
+          ref: 6.0.0
+          path: .emsdk
+          persist-credentials: false
+      - name: Install build tools
+        run: |
+          python3 -m venv "$RUNNER_TEMP/whiteboard-cmake"
+          "$RUNNER_TEMP/whiteboard-cmake/bin/pip" install cmake==4.3.4
+          echo "$RUNNER_TEMP/whiteboard-cmake/bin" >> "$GITHUB_PATH"
+          ./.vcpkg/bootstrap-vcpkg.sh -disableMetrics
+          ./.emsdk/emsdk install 6.0.0
+          ./.emsdk/emsdk activate 6.0.0
+      - name: Build native interoperability tools
+        run: |
+          cmake --preset vcpkg-release -DWHITEBOARD_WARNINGS_AS_ERRORS=ON
+          cmake --build build/vcpkg-release --target whiteboard_web_fixture whiteboard-inspect -j2
+      - name: Build browser package
+        run: |
+          source .emsdk/emsdk_env.sh
+          cmake --preset web-release
+          cmake --build --preset web-release
+          npm ci --prefix web
+          npm run build --prefix web
+      - name: Test browser and interoperability
+        run: |
+          source .emsdk/emsdk_env.sh
+          npm test --prefix web
+          node web/node_modules/@playwright/test/cli.js install --with-deps chromium
+          npm run test:browser --prefix web
+          npm run benchmark --prefix web -- --output ../build/web/benchmark.json
+      - name: Package
+        run: |
+          source .emsdk/emsdk_env.sh
+          npm pack ./web --pack-destination build/web
+          tar -czf build/web/whiteboard-web-static.tar.gz -C web/dist .
+      - uses: actions/upload-artifact@v7
+        with:
+          name: whiteboard-web
+          path: |
+            build/web/*.tgz
+            build/web/whiteboard-web-static.tar.gz
+            build/web/benchmark.json
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: whiteboard-web-test-results
+          path: web/test-results/

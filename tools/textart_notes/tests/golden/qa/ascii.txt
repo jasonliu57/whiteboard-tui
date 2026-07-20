@@ -1,0 +1,19 @@
++ QA ------------------------------------------------------------------+
+| Deck: 資料結構複習 / Data Structures Review                          |
+| Mode: expanded                                                       |
++ PAIR ----------------------------------------------------------------+
+| Deck: 資料結構複習 / Data Structures Review                          |
+| Pair: queue-fifo                                                     |
+| Difficulty: easy                                                     |
+| Tags: 資料結構, interview                                            |
+| Q: Queue 的核心順序是什麼？ / What order does a queue use?           |
+| Hint: 想像排隊買票 / Think of a ticket line.                         |
+| A: 先進先出（FIFO）；最早加入的元素最先離開。                        |
++ PAIR ----------------------------------------------------------------+
+| Deck: 資料結構複習 / Data Structures Review                          |
+| Pair: tree-height                                                    |
+| Difficulty: medium                                                   |
+| Tags: tree, 定義                                                     |
+| Q: 若 root 到 leaf 有 3 條 edge，height 是多少？                     |
+| A: 以 edge 數定義時 height = 3；definition must be explicit.         |
++----------------------------------------------------------------------+

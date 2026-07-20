@@ -1,0 +1,42 @@
+{
+  "name": "whiteboard-tui-web",
+  "version": "2.2.1",
+  "description": "Standalone browser whiteboard with the whiteboardTUI document and editing core",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/whiteboard.js"
+    },
+    "./style.css": "./dist/whiteboard.css",
+    "./build.json": "./dist/build.json",
+    "./runtime/*": "./dist/runtime/*"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "playwright test",
+    "benchmark": "node scripts/benchmark.mjs",
+    "benchmark:browser": "node scripts/benchmark-browser.mjs",
+    "prepack": "node scripts/check-package.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@playwright/test": "1.63.0",
+    "@webtui/css": "0.1.10",
+    "@webtui/theme-catppuccin": "0.0.5",
+    "@xterm/addon-fit": "0.11.0",
+    "@xterm/xterm": "6.0.0",
+    "esbuild": "0.28.2",
+    "postcss": "8.5.28"
+  }
+}

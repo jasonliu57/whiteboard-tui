@@ -1,0 +1,10 @@
+* text=auto
+
+# Standalone whiteboard files are binary.
+*.tiwb binary
+
+# Raster assets are binary.
+*.png -text
+
+# Markdown parser fixtures use significant trailing spaces and blank lines.
+vendor/tree-sitter-markdown/**/test/corpus/** -whitespace

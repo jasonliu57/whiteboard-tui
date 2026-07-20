@@ -1,0 +1,23 @@
+{
+  "schema": "timeline-note/v1",
+  "title": "產品 Release 演進",
+  "timeline": {
+    "kind": "ordinal",
+    "stages": [
+      {"id": "discover", "label": "Discover 探索"},
+      {"id": "build", "label": "Build 實作"},
+      {"id": "ship", "label": "Ship 上線"}
+    ]
+  },
+  "lanes": [
+    {"id": "product", "label": "Product 產品"},
+    {"id": "engineering", "label": "Engineering 工程"}
+  ],
+  "events": [
+    {"id": "brief", "stage_id": "discover", "lane_id": "product", "label": "定義 Goal", "description": "訪談 users 並整理核心問題"},
+    {"id": "spike", "stage_id": "discover", "lane_id": "engineering", "label": "API spike", "description": "驗證 UTF-8\tcell width"},
+    {"id": "prototype", "stage_id": "build", "lane_id": "engineering", "label": "完成 Prototype", "description": "render → validate → test"},
+    {"id": "acceptance", "stage_id": "build", "lane_id": "product", "label": "Acceptance review", "description": "確認 é 與中文欄位對齊"},
+    {"id": "release", "stage_id": "ship", "lane_id": "engineering", "label": "Release v1", "description": "部署並記錄結果"}
+  ]
+}

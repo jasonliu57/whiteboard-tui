@@ -1,0 +1,27 @@
+{
+  "id": "talk-sketch",
+  "title": "Café 創意會議 / Idea Jam",
+  "groups": [
+    {
+      "id": "ideas",
+      "title": "核心想法 Core Ideas",
+      "blocks": [
+        {"id": "seed", "keyword": "種子\tSeed", "body": "Café、中文與 का 都按實體 cell 量測。", "icon": "idea", "importance": "high"},
+        {"id": "audience", "keyword": "Audience 聽眾", "body": "先辨識真正需要記住的人。", "icon": "person", "importance": "normal"},
+        {"id": "next-step", "keyword": "下一步 Action", "body": "把洞見轉成一個可驗證的小行動。", "icon": "action", "importance": "critical"}
+      ]
+    },
+    {
+      "id": "checks",
+      "title": "檢查與記錄 Checks",
+      "blocks": [
+        {"id": "risk", "keyword": "Risk 風險", "body": "避免把速記誤當自由插畫。", "icon": "warning", "importance": "critical"},
+        {"id": "open-question", "keyword": "Question 問題", "body": "哪一條關係真的值得畫？", "icon": "question", "importance": "high"},
+        {"id": "record", "keyword": "Note 記錄", "body": "保留作者順序與 stable IDs。", "icon": "note", "importance": "normal"}
+      ]
+    }
+  ],
+  "relations": [
+    {"id": "inspires", "source": "seed", "target": "next-step", "label": "leads\tto"}
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Markdown 白板知識圖"
+  short_description: "將 Markdown 編譯成可驗證的 whiteboardTUI 知識圖"
+  default_prompt: "使用 $whiteboard-markdown-mind-map 將這份 Markdown 製作成白板知識圖。"

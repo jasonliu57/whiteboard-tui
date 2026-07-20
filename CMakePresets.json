@@ -1,0 +1,130 @@
+{
+  "version": 2,
+  "cmakeMinimumRequired": {
+    "major": 4,
+    "minor": 3,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "vcpkg-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "BUILD_TESTING": "ON"
+      }
+    },
+    {
+      "name": "vcpkg-release",
+      "displayName": "Release with vcpkg",
+      "inherits": "vcpkg-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "vcpkg-debug",
+      "displayName": "Debug with vcpkg",
+      "inherits": "vcpkg-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "vcpkg-sanitize",
+      "displayName": "Sanitizers with vcpkg",
+      "inherits": "vcpkg-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "WHITEBOARD_ENABLE_SANITIZERS": "ON"
+      }
+    },
+    {
+      "name": "vcpkg-benchmark",
+      "displayName": "Release benchmark with vcpkg",
+      "inherits": "vcpkg-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_TESTING": "OFF",
+        "WHITEBOARD_BUILD_STRESS": "ON"
+      }
+    },
+    {
+      "name": "web-release",
+      "displayName": "Browser WASM Release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/web",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_TESTING": "OFF",
+        "WHITEBOARD_WARNINGS_AS_ERRORS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "vcpkg-release",
+      "configurePreset": "vcpkg-release",
+      "jobs": 2
+    },
+    {
+      "name": "vcpkg-debug",
+      "configurePreset": "vcpkg-debug",
+      "jobs": 2
+    },
+    {
+      "name": "vcpkg-sanitize",
+      "configurePreset": "vcpkg-sanitize",
+      "jobs": 2
+    },
+    {
+      "name": "vcpkg-benchmark",
+      "configurePreset": "vcpkg-benchmark",
+      "jobs": 2
+    },
+    {
+      "name": "web-release",
+      "configurePreset": "web-release",
+      "targets": [
+        "whiteboard_web"
+      ],
+      "jobs": 2
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "vcpkg-release",
+      "configurePreset": "vcpkg-release",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "jobs": 2
+      }
+    },
+    {
+      "name": "vcpkg-debug",
+      "configurePreset": "vcpkg-debug",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "jobs": 2
+      }
+    },
+    {
+      "name": "vcpkg-sanitize",
+      "configurePreset": "vcpkg-sanitize",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "jobs": 2
+      }
+    }
+  ]
+}

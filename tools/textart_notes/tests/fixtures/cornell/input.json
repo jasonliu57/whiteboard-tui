@@ -1,0 +1,15 @@
+{
+  "topic": "Terminal cell 與文字幾何",
+  "pairs": [
+    {"id": "cell-width", "cue": "英文字與中文字寬度？", "note": "English letters use one cell；中文字通常使用兩格。"},
+    {"id": "tab-stop", "cue": "Tab 如何對齊？", "note": "依目前實體欄位前進到下一個四格 tab stop，而非固定補四格。"},
+    {"id": "split-rule", "cue": "何時分卡？", "note": "只在完整 cue/note pair 之間分割，並重複 topic 與 summary。"}
+  ],
+  "summary": "先以 terminal cell 量測，再於完整配對邊界分頁，絕不裁切內容。",
+  "cue_ratio": 0.3,
+  "metadata": {
+    "course": "資料結構 Data Structures",
+    "date": "2026-08-01",
+    "source": "課堂 handout"
+  }
+}

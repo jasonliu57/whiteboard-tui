@@ -1,0 +1,15 @@
++ SUMMARY CARD --------------------------+
++ TOPIC ---------------------------------+
+| Terminal geometry / 終端格             |
++ CORE CONCLUSION -----------------------+
+| Measure cells before wrapping          |
+| 中文內容。                             |
++ EVIDENCE ------------------------------+
+| - English is one cell; 中文 is two.    |
+| - Wide glyphs are never split.         |
++ APPLICATION ---------------------------+
+| Reuse one shared width core.           |
++ SOURCE + TAGS -------------------------+
+| SRC: Renderer note 2026 | TAGS: TUI,   |
+| 中文                                   |
++----------------------------------------+

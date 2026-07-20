@@ -1,0 +1,21 @@
+{
+  "title": "資料結構密集會議 / DSA sync",
+  "sentences": [
+    {
+      "text": "陣列 array 提供連續記憶體，索引讀取通常是 O(1)。",
+      "timestamp": "09:00",
+      "speaker": "王",
+      "tags": ["重點", "memory"]
+    },
+    {
+      "text": "Linked list 插入節點時不搬移後續元素，但定位仍需線性走訪。",
+      "speaker": "Ada",
+      "tags": ["tradeoff"]
+    },
+    {
+      "text": "é combines as one cell；下一輪比較 stack\t與 queue。",
+      "timestamp": "09:15",
+      "tags": ["follow-up"]
+    }
+  ]
+}

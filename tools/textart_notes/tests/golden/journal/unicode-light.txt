@@ -1,0 +1,17 @@
+┌──────────────────────────────────────────────────────────────────────┐
+│ JOURNAL: 工程日誌 / Engineering Journal                              │
+│ TIMEZONE: +08:00                                                     │
+│ DATE: 2026-08-01                                                     │
+│ ENTRY: sprint-20260801                                               │
+│ PAGE: 0001                                                           │
+│ MOOD: 專注 / focused                                                 │
+│ METRIC: 測試 / tests = 12 cases                                      │
+│ METRIC: coverage = 91%                                               │
+├ EVENTS 1-2/2 ────────────────────────────────────────────────────────┤
+│ * [standup] 同步 API 契約 / sync renderer contract                   │
+│ * [cell-audit] 檢查欄位   對齊 and café combining mark               │
+├ REFLECTION repeated ─────────────────────────────────────────────────┤
+│ 中文每字兩格；English stays narrow.                                  │
+├ NEXT STEPS 1-1/1 ────────────────────────────────────────────────────┤
+│ > [golden] 補齊 mixed-language golden test                           │
+└──────────────────────────────────────────────────────────────────────┘

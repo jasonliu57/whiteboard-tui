@@ -1,0 +1,30 @@
+{
+  "collection_title": "資料結構永久筆記 / Data Structures",
+  "concepts": [
+    {
+      "id": "queue-fifo",
+      "title": "佇列遵循 FIFO / Queue ordering",
+      "body": "先進先出（FIFO）讓最早加入的元素先離開。\nEnqueue 在尾端，dequeue 從前端。\nTab 範例:\tO(1)，accent: café。",
+      "tags": ["資料結構", "queue"],
+      "references": [
+        {"id": "amortized-analysis", "kind": "internal", "label": "攤銷分析"},
+        {"id": "missing-ring-buffer", "kind": "internal", "label": "待補環形緩衝區"},
+        {"id": "clrs-4e", "kind": "external", "label": "CLRS"}
+      ],
+      "source": {
+        "id": "source-clrs",
+        "citation": "Cormen et al., Introduction to Algorithms",
+        "locator": "§10.1"
+      }
+    },
+    {
+      "id": "amortized-analysis",
+      "title": "攤銷分析 / Amortized analysis",
+      "body": "評估一連串操作的平均成本，而不是機率上的平均。",
+      "tags": ["analysis", "複雜度"],
+      "references": [
+        {"id": "queue-fifo", "kind": "internal"}
+      ]
+    }
+  ]
+}

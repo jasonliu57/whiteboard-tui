@@ -1,0 +1,11 @@
+┌ OUTLINE ───────────────────────────────────┐
+│ Renderer API / 渲染契約                    │
+├────────────────────────────────────────────┤
+│ ├─ 1 [x] Geometry 幾何                     │
+│    ├─ 1.1 [>] English one cell，中文 two   │
+│               cells                        │
+│    ├─ 1.2 Hanging continuation aligns with │
+│           body text                        │
+│ ├─ 2 [ ] Output 輸出                       │
+│    ├─ 2.1 Text-art only                    │
+└────────────────────────────────────────────┘

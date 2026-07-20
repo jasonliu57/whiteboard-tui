@@ -1,0 +1,52 @@
+{
+  "schema": {
+    "version": 1,
+    "template_id": "study-log",
+    "title": "Study Log / 學習紀錄",
+    "fields": [
+      {
+        "id": "topic",
+        "label": "Topic / 主題",
+        "type": "text",
+        "required": true,
+        "blank": {"style": "placeholder", "text": "enter topic"}
+      },
+      {
+        "id": "reviewed",
+        "label": "Reviewed / 已複習",
+        "type": "checkbox",
+        "required": false
+      }
+    ],
+    "repeatable_sections": [
+      {
+        "id": "actions",
+        "label": "Next actions / 下一步",
+        "min_items": 1,
+        "max_items": 4,
+        "max_height": 8,
+        "empty_placeholder": "add an action",
+        "item_fields": [
+          {
+            "id": "next",
+            "label": "Next / 後續",
+            "type": "text",
+            "required": true,
+            "blank": {"style": "line"}
+          }
+        ]
+      }
+    ]
+  },
+  "values": {
+    "fields": {
+      "topic": "Terminal cells 中文",
+      "reviewed": true
+    },
+    "repeatable_sections": {
+      "actions": [
+        {"next": "Add shared core / 共用核心"}
+      ]
+    }
+  }
+}

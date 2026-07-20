@@ -1,0 +1,112 @@
+{
+  "wasm": {
+    "schema": 1,
+    "runtime": "v26.9.0",
+    "platform": "linux",
+    "architecture": "x64",
+    "wasm_sha256": "3f7b2045e96eea324394d3c18407a84022e17b4e6d20aab90ab69da8d2e92a9b",
+    "cards": 500,
+    "samples": 20,
+    "document_bytes": 32462,
+    "wasm_memory_capacity_bytes": 67108864,
+    "startup_ms": 10.165892,
+    "overview_bytes": 12008,
+    "operations": {
+      "decode": {
+        "median_ms": 0.32090300000000127,
+        "p95_ms": 0.40844700000000245
+      },
+      "encode": {
+        "median_ms": 0.15216600000000113,
+        "p95_ms": 0.19656899999999666
+      },
+      "frame": {
+        "median_ms": 0.0631789999999981,
+        "p95_ms": 0.07934900000000056
+      },
+      "pan_and_frame": {
+        "median_ms": 0.07500100000000032,
+        "p95_ms": 0.08003100000000529
+      },
+      "overview_build": {
+        "median_ms": 0.2693259999999924,
+        "p95_ms": 0.3601669999999899
+      },
+      "overview_cached": {
+        "median_ms": 0.0017530000000078871,
+        "p95_ms": 0.0038070000000089976
+      },
+      "overview_view": {
+        "median_ms": 0.0014919999999989386,
+        "p95_ms": 0.002904999999998381
+      }
+    }
+  },
+  "browser": {
+    "schema": 1,
+    "browser": "153.0.8010.12",
+    "cpu_throttle": 4,
+    "samples": 20,
+    "wasm_sha256": "3f7b2045e96eea324394d3c18407a84022e17b4e6d20aab90ab69da8d2e92a9b",
+    "minimap": {
+      "desktop": {
+        "cards": 500,
+        "collapsed": {
+          "completion_paint_opportunity": {
+            "median_ms": 50.599999994039536,
+            "p95_ms": 51.599999994039536
+          },
+          "frame_counts": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+          "overview_queries": 0,
+          "base_draw_calls": 0,
+          "main_thread_task_ms_per_operation": 17.824500000000004
+        },
+        "initial_query": {
+          "count": 1,
+          "bytes": 12008,
+          "ansi_frames": 0,
+          "round_trip_ms": 1.100000023841858
+        },
+        "expanded": {
+          "completion_paint_opportunity": {
+            "median_ms": 51,
+            "p95_ms": 53.599999994039536
+          },
+          "frame_counts": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+          "overview_queries": 0,
+          "base_draw_calls": 0,
+          "main_thread_task_ms_per_operation": 17.830874999999995
+        }
+      },
+      "mobile": {
+        "cards": 500,
+        "collapsed": {
+          "completion_paint_opportunity": {
+            "median_ms": 50.099999994039536,
+            "p95_ms": 50.599999994039536
+          },
+          "frame_counts": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+          "overview_queries": 0,
+          "base_draw_calls": 0,
+          "main_thread_task_ms_per_operation": 11.228374999999994
+        },
+        "initial_query": {
+          "count": 1,
+          "bytes": 12008,
+          "ansi_frames": 0,
+          "round_trip_ms": 1
+        },
+        "expanded": {
+          "completion_paint_opportunity": {
+            "median_ms": 50.099999994039536,
+            "p95_ms": 50.30000001192093
+          },
+          "frame_counts": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+          "overview_queries": 0,
+          "base_draw_calls": 0,
+          "main_thread_task_ms_per_operation": 10.901624999999997
+        }
+      }
+    }
+  }
+}

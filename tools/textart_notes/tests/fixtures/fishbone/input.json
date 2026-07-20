@@ -1,0 +1,25 @@
+{
+  "effect": "交付 Delay",
+  "layout": "classic",
+  "branches": [
+    {
+      "name": "人員 People",
+      "side": "top",
+      "nodes": ["訓練不足", "staff\tonboarding"]
+    },
+    {
+      "name": "流程 Process",
+      "side": "auto",
+      "causes": ["review queue", "需求反覆"]
+    },
+    {
+      "name": "工具 Tools",
+      "side": "bottom",
+      "nodes": ["énv drift", "版本老舊"]
+    },
+    {
+      "name": "管理 Ops",
+      "nodes": ["priority unclear", "溝通\n延遲"]
+    }
+  ]
+}

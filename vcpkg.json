@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "whiteboard-tui",
+  "version-semver": "2.0.0",
+  "description": "A terminal infinite whiteboard for POSIX systems",
+  "license": "MIT",
+  "builtin-baseline": "7ebe9ffa933558af0c2fec88a1cdd5972fdcb51c",
+  "dependencies": [
+    "abseil",
+    "freetype",
+    "libpng"
+  ]
+}

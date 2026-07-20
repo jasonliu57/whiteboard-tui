@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "formats": [
+    {
+      "key": "note",
+      "minimum": [12, 5],
+      "maximum": [120, 80],
+      "save_format": 0
+    },
+    {
+      "key": "markdown",
+      "minimum": [16, 6],
+      "maximum": [120, 80],
+      "save_format": 1
+    },
+    {
+      "key": "code",
+      "minimum": [20, 7],
+      "maximum": [160, 100],
+      "save_format": 0
+    },
+    {
+      "key": "todo",
+      "minimum": [12, 5],
+      "maximum": [100, 80],
+      "save_format": 2
+    },
+    {
+      "key": "csv",
+      "minimum": [14, 5],
+      "maximum": [140, 80],
+      "save_format": 3
+    },
+    {
+      "key": "folder",
+      "minimum": [16, 5],
+      "maximum": [120, 80],
+      "save_format": 4
+    },
+    {
+      "key": "text-art",
+      "minimum": [1, 1],
+      "maximum": [160, 100],
+      "save_format": 0
+    }
+  ]
+}
